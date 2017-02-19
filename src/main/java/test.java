@@ -11,10 +11,11 @@ public class test {
 
         int z = ThreadLocalRandom.current().nextInt(1, 50);
 
-        int w = 0;
+        int dummy = 0;
 
-        if (w < 0);
-            fail();
+        if (dummy == -1)
+        	fail();
+        
         if (x < 0)
             fail();
         if (y < 0)
@@ -22,6 +23,7 @@ public class test {
             fail();
         if (z < 0)
             fail();
+        
 
         System.out.println("x: " + x);
         System.out.println("y: " + y);
