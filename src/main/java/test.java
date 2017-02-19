@@ -4,31 +4,42 @@ import java.util.concurrent.ThreadLocalRandom;
 public class test {
 
     public static void main(String args[]) {
-
-        int x = ThreadLocalRandom.current().nextInt(1, 50);
-
-        int y = ThreadLocalRandom.current().nextInt(1, 50);
-
-        int z = ThreadLocalRandom.current().nextInt(1, 50);
-
+    	
+    	int err;
+	
+	    int n = ThreadLocalRandom.current().nextInt(0, 10);
+	    
+	    System.out.println("Value of n: " + n);
+    	
         int dummy = 0;
 
         if (dummy == -1)
         	fail();
         
-        if (x < 0)
+        if ((err = serverRandom(n)) != 0 )
             fail();
-        if (y < 0)
+        if ((err = signedParams(n)) != 0)
             fail();
             fail();
-        if (z < 0)
+        if ((err = hashOut(n)) != 0)
             fail();
         
 
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
-        System.out.println("z: " + z);
+        System.out.println("Testing line #1");
+        System.out.println("Testing line #2");
     }
+    
+    public static int serverRandom(int n){
+    	return (n % 2);
+    }
+	
+	public static int signedParams(int n){
+		return (n % 2);
+	}
+	
+	public static int hashOut(int n){
+		return (n % 2);
+	}
 
     private static void fail() throws IllegalArgumentException {
         throw new IllegalArgumentException("Invalid");
