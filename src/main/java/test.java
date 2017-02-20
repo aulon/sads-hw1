@@ -7,26 +7,27 @@ public class test {
     	
     	int err;
 	
-	    int n = ThreadLocalRandom.current().nextInt(0, 10);
-	    
-	    System.out.println("Value of n: " + n);
+	    int x = ThreadLocalRandom.current().nextInt(0, 10);
+	    int y = ThreadLocalRandom.current().nextInt(0, 10);
+	    int z = ThreadLocalRandom.current().nextInt(0, 10);
     	
         int dummy = 0;
 
         if (dummy == -1)
         	fail();
         
-        if ((err = serverRandom(n)) != 0 )
+        if ((err = serverRandom(x)) != 0 )
             fail();
-        if ((err = signedParams(n)) != 0)
+        if ((err = signedParams(y)) != 0)
             fail();
+            //fail();
+        if ((err = hashOut(z)) != 0)
             fail();
-        if ((err = hashOut(n)) != 0)
-            fail();
-        
-
-        System.out.println("Testing line #1");
-        System.out.println("Testing line #2");
+	    
+	    System.out.println("Value of x: " + x);
+	    System.out.println("Value of y: " + y);
+	    System.out.println("Value of z: " + z);
+	
     }
     
     public static int serverRandom(int n){
