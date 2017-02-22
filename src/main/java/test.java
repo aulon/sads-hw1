@@ -4,18 +4,22 @@ import java.util.concurrent.ThreadLocalRandom;
 public class test {
 
     public static void main(String args[]) {
-    	
-    	int err;
 	
 	    int x = ThreadLocalRandom.current().nextInt(0, 10);
 	    int y = ThreadLocalRandom.current().nextInt(0, 10);
 	    int z = ThreadLocalRandom.current().nextInt(0, 10);
-    	
+	    SSL(x, y, z);
+    }
+			    
+	public static void SSL(int x, int y, int z){
+		
+		int err;
+		
         int dummy = 0;
 
         if (dummy == -1)
-        	fail();
-        
+	        fail();
+		    
         if ((err = serverRandom(x)) != 0 )
             fail();
         if ((err = signedParams(y)) != 0)
